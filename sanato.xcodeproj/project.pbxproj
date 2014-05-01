@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A0FD6C6D19127E7F001DD14B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FD6C6C19127E7F001DD14B /* Foundation.framework */; };
+		A0FD6C7019127E7F001DD14B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD6C6F19127E7F001DD14B /* main.m */; };
+		A0FD6C7419127E7F001DD14B /* sanato.1 in Copy Files */ = {isa = PBXBuildFile; fileRef = A0FD6C7319127E7F001DD14B /* sanato.1 */; };
+		A0FD6C8519127F2B001DD14B /* DDCliApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD6C7D19127F2B001DD14B /* DDCliApplication.m */; };
+		A0FD6C8619127F2B001DD14B /* DDCliParseException.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD6C7F19127F2B001DD14B /* DDCliParseException.m */; };
+		A0FD6C8719127F2B001DD14B /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD6C8119127F2B001DD14B /* DDCliUtil.m */; };
+		A0FD6C8819127F2B001DD14B /* DDGetoptLongParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD6C8419127F2B001DD14B /* DDGetoptLongParser.m */; };
+		A0FD6C8E19127F5F001DD14B /* Sana.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD6C8C19127F5F001DD14B /* Sana.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A0FD6C6719127E7F001DD14B /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				A0FD6C7419127E7F001DD14B /* sanato.1 in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A0FD6C6919127E7F001DD14B /* sanato */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sanato; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0FD6C6C19127E7F001DD14B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A0FD6C6F19127E7F001DD14B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A0FD6C7219127E7F001DD14B /* sanato-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sanato-Prefix.pch"; sourceTree = "<group>"; };
+		A0FD6C7319127E7F001DD14B /* sanato.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = sanato.1; sourceTree = "<group>"; };
+		A0FD6C7C19127F2B001DD14B /* DDCliApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliApplication.h; sourceTree = "<group>"; };
+		A0FD6C7D19127F2B001DD14B /* DDCliApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliApplication.m; sourceTree = "<group>"; };
+		A0FD6C7E19127F2B001DD14B /* DDCliParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliParseException.h; sourceTree = "<group>"; };
+		A0FD6C7F19127F2B001DD14B /* DDCliParseException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliParseException.m; sourceTree = "<group>"; };
+		A0FD6C8019127F2B001DD14B /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
+		A0FD6C8119127F2B001DD14B /* DDCliUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliUtil.m; sourceTree = "<group>"; };
+		A0FD6C8219127F2B001DD14B /* DDCommandLineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCommandLineInterface.h; sourceTree = "<group>"; };
+		A0FD6C8319127F2B001DD14B /* DDGetoptLongParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDGetoptLongParser.h; sourceTree = "<group>"; };
+		A0FD6C8419127F2B001DD14B /* DDGetoptLongParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDGetoptLongParser.m; sourceTree = "<group>"; };
+		A0FD6C8B19127F5F001DD14B /* Sana.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sana.h; sourceTree = "<group>"; };
+		A0FD6C8C19127F5F001DD14B /* Sana.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sana.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A0FD6C6619127E7F001DD14B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0FD6C6D19127E7F001DD14B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0FD6C6019127E7F001DD14B = {
+			isa = PBXGroup;
+			children = (
+				A0FD6C6E19127E7F001DD14B /* sanato */,
+				A0FD6C6B19127E7F001DD14B /* Frameworks */,
+				A0FD6C6A19127E7F001DD14B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A0FD6C6A19127E7F001DD14B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0FD6C6919127E7F001DD14B /* sanato */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0FD6C6B19127E7F001DD14B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0FD6C6C19127E7F001DD14B /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0FD6C6E19127E7F001DD14B /* sanato */ = {
+			isa = PBXGroup;
+			children = (
+				A0FD6C7B19127F2B001DD14B /* ddcli */,
+				A0FD6C6F19127E7F001DD14B /* main.m */,
+				A0FD6C8B19127F5F001DD14B /* Sana.h */,
+				A0FD6C8C19127F5F001DD14B /* Sana.m */,
+				A0FD6C7319127E7F001DD14B /* sanato.1 */,
+				A0FD6C7119127E7F001DD14B /* Supporting Files */,
+			);
+			path = sanato;
+			sourceTree = "<group>";
+		};
+		A0FD6C7119127E7F001DD14B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A0FD6C7219127E7F001DD14B /* sanato-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A0FD6C7B19127F2B001DD14B /* ddcli */ = {
+			isa = PBXGroup;
+			children = (
+				A0FD6C7C19127F2B001DD14B /* DDCliApplication.h */,
+				A0FD6C7D19127F2B001DD14B /* DDCliApplication.m */,
+				A0FD6C7E19127F2B001DD14B /* DDCliParseException.h */,
+				A0FD6C7F19127F2B001DD14B /* DDCliParseException.m */,
+				A0FD6C8019127F2B001DD14B /* DDCliUtil.h */,
+				A0FD6C8119127F2B001DD14B /* DDCliUtil.m */,
+				A0FD6C8219127F2B001DD14B /* DDCommandLineInterface.h */,
+				A0FD6C8319127F2B001DD14B /* DDGetoptLongParser.h */,
+				A0FD6C8419127F2B001DD14B /* DDGetoptLongParser.m */,
+			);
+			path = ddcli;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0FD6C6819127E7F001DD14B /* sanato */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0FD6C7719127E7F001DD14B /* Build configuration list for PBXNativeTarget "sanato" */;
+			buildPhases = (
+				A0FD6C6519127E7F001DD14B /* Sources */,
+				A0FD6C6619127E7F001DD14B /* Frameworks */,
+				A0FD6C6719127E7F001DD14B /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sanato;
+			productName = sanato;
+			productReference = A0FD6C6919127E7F001DD14B /* sanato */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0FD6C6119127E7F001DD14B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Luis Palacios";
+			};
+			buildConfigurationList = A0FD6C6419127E7F001DD14B /* Build configuration list for PBXProject "sanato" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A0FD6C6019127E7F001DD14B;
+			productRefGroup = A0FD6C6A19127E7F001DD14B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0FD6C6819127E7F001DD14B /* sanato */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0FD6C6519127E7F001DD14B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0FD6C8719127F2B001DD14B /* DDCliUtil.m in Sources */,
+				A0FD6C8E19127F5F001DD14B /* Sana.m in Sources */,
+				A0FD6C7019127E7F001DD14B /* main.m in Sources */,
+				A0FD6C8619127F2B001DD14B /* DDCliParseException.m in Sources */,
+				A0FD6C8819127F2B001DD14B /* DDGetoptLongParser.m in Sources */,
+				A0FD6C8519127F2B001DD14B /* DDCliApplication.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A0FD6C7519127E7F001DD14B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A0FD6C7619127E7F001DD14B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A0FD6C7819127E7F001DD14B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sanato/sanato-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A0FD6C7919127E7F001DD14B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sanato/sanato-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0FD6C6419127E7F001DD14B /* Build configuration list for PBXProject "sanato" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0FD6C7519127E7F001DD14B /* Debug */,
+				A0FD6C7619127E7F001DD14B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0FD6C7719127E7F001DD14B /* Build configuration list for PBXNativeTarget "sanato" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0FD6C7819127E7F001DD14B /* Debug */,
+				A0FD6C7919127E7F001DD14B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A0FD6C6119127E7F001DD14B /* Project object */;
+}
