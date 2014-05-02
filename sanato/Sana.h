@@ -10,7 +10,7 @@
 #import "DDCommandLineInterface.h"
 
 /**
- *  @brief  Looks for ':' or '?' in file and directory names, renaming them to '-'
+ *  @brief  Looks for charset's in file and directory names, renaming if necesary
  *  @class  Sana
  *
  *  @author  Luis Palacios
@@ -28,14 +28,16 @@
     BOOL _help;
 }
 
-// OPTION A) no longer used, leaft here as an example
-// Define a set of valid characters and rename the inverse set of characters
-// bu the character '-'.
-//
-///**
-// * @brief String with all the valid characters
-// */
-// @property (nonatomic, strong) NSString *addValid;
+/**
+ * @brief String with all the INVALID "warning" characters
+ */
+@property (nonatomic, strong) NSString *stringCharsMustWarn;
+
+/**
+ * @brief String with all the characters that I'll rename to '-'
+ */
+@property (nonatomic, strong) NSString *stringCharsMustSwap;
+
 
 #pragma mark -
 #pragma mark Public Instance Methods

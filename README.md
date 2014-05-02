@@ -1,7 +1,7 @@
 sanato
 ======
 
-MacOSX command line program that allows you to sanitizes file/directory names. I needed a program that is able to go through the complete subdirectory structure from current working directory, looking for file or directory names containing either the '?' or ':' characters and beaing able to rename those to '-'.
+MacOSX (command line) program that allows you to sanitizes file/directory names. This program uns recursively from current working directory looking for file or directory names that includes any of the WARNING or MUST-SWAP characters, if any of the "WARNING" chars are found they will be logged, if any of the MUST-SWAP are found and the '-s' option is present then those chars in the path will swapped by '-'.
 
 	sanato: Usage [OPTIONS] <argument> [...]
 	   -s, --sanitize                Rename last path components
@@ -9,17 +9,33 @@ MacOSX command line program that allows you to sanitizes file/directory names. I
 	       --version                 Display version and exit
 	   -h, --help                    Display this help and exit
 
+Looks for the following sets of characters:
+
+	WARNING SET     |?*<":>/
+	MUST-SWAP SET   :?
 
 ### Installation and Usage
 
-Download and compile with XCode. Place the resulting executable into your PATH. 
+Download and compile with XCode. Place the resulting executable into your PATH. Open a terminal session run in any directory, firstly without any arguments so it will run in dryrun mode, show what it would do without doing any renaming. When you are ready and happy with the tentative renamings then just run it with -s option.
 
-Open a terminal session run in any directory, firstly without any arguments. It will run recursively through subdirectories looking for names with '?' or ':' characters. 
+### LICENSE
 
-I recommend running first without arguments, so will perform a dry run,
-showing what it would do without doing it
+PLEASE NOTICE that this program may BREAK your Applications or Documents. Be aware that some applications, documents or libraries may use special characters ':' and '?' inside their bundles, so USE THIS PROGRAM AT YOUR OWN RISK
 
-When you are ready to go just run it with -s option, last path names found with those characters will be swapped by the '-' character. 
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+
+****
 

@@ -134,6 +134,7 @@
 				A0FD6C6519127E7F001DD14B /* Sources */,
 				A0FD6C6619127E7F001DD14B /* Frameworks */,
 				A0FD6C6719127E7F001DD14B /* Copy Files */,
+				A056631C19137DF000384EA9 /* Copy "debug binary" to my PATH (useful while developing) */,
 			);
 			buildRules = (
 			);
@@ -169,6 +170,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A056631C19137DF000384EA9 /* Copy "debug binary" to my PATH (useful while developing) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy \"debug binary\" to my PATH (useful while developing)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n# Script that copies the \"executable\" while in Debug phase into my\n# own PATH, so I can have a Terminal open while developing doing tests\n#\nDEBUG_INSTALL_PATH=\"/Users/luis/priv/bin\"\n\n# Lets rock...\nif [ ${CONFIGURATION} == \"Debug\" ]\nthen\nif [ -d ${DEBUG_INSTALL_PATH} ]\n    then\n            echo \"Copying: cp ${TARGET_BUILD_DIR}/${TARGET_NAME} ${DEBUG_INSTALL_PATH}\"\n            cp ${TARGET_BUILD_DIR}/${TARGET_NAME} ${DEBUG_INSTALL_PATH}\n    fi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A0FD6C6519127E7F001DD14B /* Sources */ = {

@@ -1,25 +1,10 @@
-/**
- 
- sanato (healing), looks for ':' or '?' in file/dir names, renaming to '-'
- 
- Copyright (C) 2014  Luis Palacios
- 
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
- 
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- 
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
- Created by Luis Palacios on 01/05/14
- 
- */
+//
+//  Sana.m
+//  sanato
+//
+//  Created by Luis Palacios on 01/05/14.
+//  Copyright (c) 2014 Luis Palacios.
+//
 
 #import "Sana.h"
 
@@ -28,11 +13,8 @@
 -(id)init
 {
     if ( (self = [super init]) ) {
-        // OPTION A) no longer used, leaft here as an example
-        // Define a set of valid characters and rename the inverse set of characters
-        // bu the character '-'.
-        //
-        // self.addValid = @"'~.,;!¡\"@®#$%^&*()—_-+=|{}[]áéíóúÁÉÍÓÚñÑçÇ€";
+        self.stringCharsMustWarn = @"|\?*<\":>/";
+        self.stringCharsMustSwap = @":?";
     }
     return self;
 }
@@ -91,54 +73,34 @@
 {
     [self printUsage: stdout];
     
-    // OPTION A) no longer used, leaft here as an example
-    // Define a set of valid characters and rename the inverse set of characters
-    // bu the character '-'.
-    //
-    //    printf("\n"
-    //           "  -s, --sanitize                Rename last path components\n"
-    //           "  -v, --verbose                 Increase verbosity\n"
-    //           "      --version                 Display version and exit\n"
-    //           "  -h, --help                    Display this help and exit\n"
-    //           "\n"
-    //           "Allow ONLY the following sets of characters: \n"
-    //           "   alphanumeric Character Set: \n"
-    //           "   whitespace\n"
-    //           "   %s\n"
-    //           "\n"
-    //           "Open a terminal session on your macosx, run in any directory, will recursively\n"
-    //           "go through subdirectories looking for names which include a character not in \n"
-    //           "the above sets and if found will swap them by the '-' char.\n"
-    //           "\n"
-    //           "I recommend running first without arguments, so will perform a dry run,\n"
-    //           "showing what it would do without doing it\n"
-    //           "\n"
-    //           "When you are ready to go just run it with -s option.\n"
-    //           "\n", [self.addValid UTF8String]);
-    
     printf("\n"
            "  -s, --sanitize                Rename last path components\n"
            "  -v, --verbose                 Increase verbosity\n"
            "      --version                 Display version and exit\n"
            "  -h, --help                    Display this help and exit\n"
            "\n"
-           "Looks for ':' or '?' in file and directory names, renaming them to '-'\n"
+           "Looks for the following sets of characters: \n"
+           "   WARNING SET     %s\n"
+           "   MUST-SWAP SET   %s\n"
            "\n"
-           "Open a terminal session on your macosx, run in any directory, will recursively\n"
-           "go through subdirectories looking for names with such characters and swap them\n"
-           "by '-' when found.\n"
            "\n"
-           "I recommend running first without arguments, so will perform a dry run,\n"
+           "Runs recursively from current working directory looking for file or directory\n"
+           "names that includes any char from the WARNING or MUST-SWAP sets. Upon finding\n"
+           "any from the \"WARNING\" set the path will be logged. If finding any from the\n"
+           "\"MUST-SWAP\" set and the '-s' option present then those chars in the path will \n"
+           "be swapped by '-'\n"
+           "\n"
+           "I recommend running first without arguments, so it will run in dryrun mode,\n"
            "showing what it would do without doing it\n"
            "\n"
            "When you are ready to go just run it with -s option.\n"
-           "\n");
-
+           "\n", self.stringCharsMustWarn.UTF8String, self.stringCharsMustSwap.UTF8String);
+    
     
 }
 - (void) printVersion;
 {
-    ddprintf(@"%@ version %s\nLuis Palacios, 2014\n\n", DDCliApp, "1.02");
+    ddprintf(@"%@ version %s\nLuis Palacios, (c)2014\n\n", DDCliApp, "1.03");
 }
 
 // -------------------------------------------------------------------------------------
@@ -151,23 +113,13 @@
         
         // Allways work from the current directory
         NSURL *directoryURL = [NSURL URLWithString:@"."];  // URL pointing to the directory you want to browse
-
-        // OPTION A) no longer used, leaft here as an example
-        // Define a set of valid characters and rename the inverse set of characters
-        // bu the character '-'.
-        //
-        // Define what is valid
-        // NSMutableCharacterSet *charactersToKeep = [NSMutableCharacterSet alphanumericCharacterSet];
-        // [charactersToKeep addCharactersInString:@" "];
-        // [charactersToKeep addCharactersInString:self.addValid];
-        // NSCharacterSet *notAllowedChars = [charactersToKeep invertedSet];
-
-        // OPTION B)
-        //
-        // Define "only" the two characters that I don't want, so any of thess
-        // characters in the file or directory name will be swapped by '-'
-        NSCharacterSet *notAllowedChars = [NSCharacterSet characterSetWithCharactersInString:@":?"];
-
+        
+        // Define the character sets that I'll warn about and that I'll swap
+        NSMutableCharacterSet *charsetMustWarn = [NSCharacterSet characterSetWithCharactersInString:self.stringCharsMustWarn];
+        [charsetMustWarn addCharactersInString:self.stringCharsMustSwap]; // Make sure Warn set has also "must swap" set
+        NSCharacterSet *charsetMustSwap = [NSCharacterSet characterSetWithCharactersInString:self.stringCharsMustSwap];
+        
+        
         // Lets go through the directories
         NSFileManager *fileManager = [[NSFileManager alloc] init];
         NSArray *keys = [NSArray arrayWithObject:NSURLIsDirectoryKey];
@@ -180,12 +132,12 @@
                                                  // Return YES if the enumeration should continue after the error.
                                                  return YES;
                                              }];
-
+        
         // Lets rock...
         for (NSURL *url in enumerator) {
             if ( !initialDir ) {
                 initialDir = [[url URLByDeletingLastPathComponent] path];
-                NSLog(@"Current working Directory: %@", initialDir);
+                NSLog(@"Current working Directory: \e[1;32m%@\e[m", initialDir);
             }
             NSError *error;
             NSNumber *isDirectory = nil;
@@ -197,53 +149,89 @@
             {
                 // Separate components
                 NSURL *dirURL = [url URLByDeletingLastPathComponent];
-                NSString *lastPathComponent = [url lastPathComponent]; //[[url absoluteString] lastPathComponent];
+                NSString *lastPathComponent = [url lastPathComponent];
                 
-                // Check if lastPathComponent has an invalid char
-                NSRange r = [lastPathComponent rangeOfCharacterFromSet:notAllowedChars];
-                if (r.location != NSNotFound) {
+                // Check if lastPathComponent has any of the "WARNING" set (which includes the MUST-SWAP)
+                NSRange rMustWarn = [lastPathComponent rangeOfCharacterFromSet:charsetMustWarn];
+                if (rMustWarn.location != NSNotFound) {
                     
-                    //// Replacing wellknown characters
-                    //NSString *sanitized = [lastPathComponent stringByReplacingOccurrencesOfString: @"¢" withString: @"ó"];
-                    //sanitized = [sanitized stringByReplacingOccurrencesOfString: @"Ã±" withString: @"ñ"];
-                    //
-                    //// Removing unaccepted characters
-                    //NSString* newLastPathComponent = [[sanitized componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@"-"];
-
-                    // Removing unaccepted characters
-                    NSString* newLastPathComponent = [[lastPathComponent componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@"-"];
-
+                    // lets get ready...
+                    NSString* newLastPathComponent=nil;
+                    
                     // Final URLs
                     NSURL *oldURL = [dirURL URLByAppendingPathComponent:lastPathComponent];
-                    NSURL *newURL = [dirURL URLByAppendingPathComponent:newLastPathComponent];
-
-                    if ( _sanitize ) {
-                        // Execute it...
-                        if ( _verbosity ) {
-                            NSLog(@"< %@", [oldURL path]);
-                            NSLog(@"> %@  (*renamed*)", [newURL path]);
+                    NSURL *newURL = nil;
+                    
+                    // Colored "oldURL" into strings for nice logging
+                    NSString *oldDirectory = [[oldURL path] stringByDeletingLastPathComponent];
+                    NSString *oldLastPathComponentedColored = [self sourceString:lastPathComponent withCharset:charsetMustWarn withColorString:@"\e[1;31m"];
+                    NSString *oldPathColored = [NSString stringWithFormat:@"%@/%@", oldDirectory, oldLastPathComponentedColored];
+                    
+                    // Lets also check if between those there is any of the "MUST-SWAP"
+                    NSRange rMustSwap = [lastPathComponent rangeOfCharacterFromSet:charsetMustSwap];
+                    if (rMustSwap.location != NSNotFound) {
+                        
+                        
+                        //// Replacing wellknown characters (not used, left for future option...)
+                        //NSString *sanitized = [lastPathComponent stringByReplacingOccurrencesOfString: @"¢" withString: @"ó"];
+                        //sanitized = [sanitized stringByReplacingOccurrencesOfString: @"Ã±" withString: @"ñ"];
+                        //NSString* newLastPathComponent = [[sanitized componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@"-"];
+                        
+                        // Prepare new renamed path name and url
+                        newLastPathComponent = [[lastPathComponent componentsSeparatedByCharactersInSet:charsetMustSwap] componentsJoinedByString:@"-"];
+                        newURL = [dirURL URLByAppendingPathComponent:newLastPathComponent];
+                        
+                        if ( _sanitize ) {
+                            // Execute it...
+                            if ( _verbosity ) {
+                                NSLog(@"\e[1;31m  being\e[m < %@", oldPathColored);
+                                NSLog(@"\e[1;31mrenamed\e[m > %@", [newURL path]);
+                            } else {
+                                NSLog(@"\e[1;31mrenamed\e[m > %@", [newURL path]);
+                            }
+                            // Exec the rename
+                            NSError *error;
+                            if ( [fileManager moveItemAtURL:oldURL toURL:newURL error:&error] == NO ) {
+                                NSLog(@"ERROR !!!  %@", [error localizedDescription]);
+                            }
                         } else {
-                            NSLog(@"%@  (*renamed*)", [newURL path]);
+                            // dry run
+                            NSLog(@"\e[1;32mwill be\e[m < %@", oldPathColored);
+                            NSLog(@"\e[1;32mrenamed\e[m > %@", [newURL path]);
                         }
-                        
-                        // Exec the rename
-                        NSError *error;
-                        if ( [fileManager moveItemAtURL:oldURL toURL:newURL error:&error] == NO ) {
-                            NSLog(@"ERROR !!!  %@", [error localizedDescription]);
-                        }
-                        
                     } else {
                         // dry run
-                        NSLog(@"DRYRUN < %@", [oldURL path]);
-                        NSLog(@"DRYRUN > %@", [newURL path]);
+                        NSLog(@"\e[1;33mwarning\e[m < %@", oldPathColored);
                     }
                 }
             }
         }
-        
     }
 }
 
+-(NSString *) sourceString:(NSString*)theString withCharset:(NSCharacterSet*)charsetToColor withColorString:(NSString*)colorString
+{
+    NSMutableString *string=[NSMutableString string];
+    
+    NSString *substr = theString;
+    NSRange rango = [substr rangeOfCharacterFromSet:charsetToColor];
+    if ( rango.location != NSNotFound ) {
+        while  (rango.location != NSNotFound) {
+            [string appendString:[substr substringToIndex:rango.location]];
+            [string appendString:colorString];
+            [string appendString:[substr substringWithRange:rango]];
+            [string appendString:@"\e[m"];
+            substr = [substr substringFromIndex:rango.location+1];
+            rango = [substr rangeOfCharacterFromSet:charsetToColor];
+        }
+        [string appendString:substr];
+    }
+    else
+    {
+        string=[theString mutableCopy];
+    }
+    return string;
+}
 
 
 @end

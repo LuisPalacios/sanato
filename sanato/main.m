@@ -1,7 +1,6 @@
 /**
- *
  
- Looks for ':' or '?' in file and directory names, renaming them to '-'
+ sanato (healing), Looks for charset's in file and directory names
  
  Copyright (C) 2014  Luis Palacios
  
@@ -18,13 +17,12 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  
- Created by Luis Palacios on 01/05/14 (luis at luispa dot com)
+ Created by Luis Palacios on 01/05/14
  
- This program uses the ddcli, a framework for building command 
+ This program uses the ddcli, a framework for building command
  line based Objective-C tools. Its source files are available here:
  http://www.dribin.org/dave/software/#ddcli
  
- *
  */
 
 #import <Foundation/Foundation.h>
