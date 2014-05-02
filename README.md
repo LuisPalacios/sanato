@@ -16,7 +16,7 @@ Looks for the following sets of characters:
 
 ### Installation and Usage
 
-Download and compile with XCode. Place the resulting executable into your PATH. Open a terminal session run in any directory, firstly without any arguments so it will run in dryrun mode, show what it would do without doing any renaming. When you are ready and happy with the tentative renamings then just run it with -s option.
+Download [sanato-1.03.zip](https://github.com/LuisPalacios/sanato/blob/master/download/sanato-1.03.zip) or Clone this repo and compile with XCode. Place the executable into your PATH. Open a terminal session run in any directory, firstly without any arguments so it will run in dryrun mode, show what it would do without doing any renaming. When you are ready and happy with the tentative renamings then just run it with -s option.
 
 ### LICENSE
 
