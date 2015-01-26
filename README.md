@@ -1,9 +1,9 @@
 sanato
 ======
 
-MacOSX (command line) program that allows you to sanitizes file/directory names. This program runs recursively from current working directory looking for file or directory names that includes any of the WARNING or MUST-SWAP characters, if any of the "WARNING" chars are found they will be logged, if any of the MUST-SWAP are found and the '-s' option is present then those chars in the path will swapped by '-'.
+MacOSX (command line) program that allows you to sanitizes file/directory names. This program runs recursively from current working directory looking for file or directory names that includes any of the WARNING or MUST-SWAP characters, if any of the "WARNING" chars are found they will be logged, if any of the MUST-SWAP are found AND the '-s' option is present then those chars in the path will be swapped by '-'.
 
-	sanato: Usage [OPTIONS] <argument> [...]
+	Usage: sanato [OPTIONS] <argument> [...]
 	   -s, --sanitize                Rename last path components
 	   -v, --verbose                 Increase verbosity
 	       --version                 Display version and exit
