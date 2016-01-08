@@ -24,7 +24,7 @@ This is extremely destructive software, it simply renames files, but it can be e
 
 ### LICENSE
 
-Este código se licencia bajo la [MIT license](http://www.opensource.org/licenses/mit-license.php)
+Licensed under [The MIT license](http://www.opensource.org/licenses/mit-license.php)
 
 ****
 
