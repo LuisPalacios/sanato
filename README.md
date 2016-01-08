@@ -6,7 +6,7 @@ MacOSX (command line) program that allows you to sanitizes file/directory names 
 	Usage: sanato [OPTIONS] <argument> [...]
 	   -s, --sanitize                Rename last path components
 	   -v, --verbose                 Increase verbosity
-	       --version                 Display version and exit
+	   --version                     Display version and exit
 	   -h, --help                    Display this help and exit
 
 Looks for the following sets of characters:
@@ -20,7 +20,7 @@ Download [sanato-1.03.zip](https://github.com/LuisPalacios/sanato/blob/master/do
 
 #### Disclaimer
 
-This is extremely destructive software, it simply renames files, but it can be extremely destructive as you may rename files under BUNDLE's or Application Bundles in MACOSX. Please use it use only if you know what you are doing. The objective of this program was to sanitizes filenames invalid under SMB shares. 
+This is extremely destructive software, it simply renames files, but it can be extremely destructive as you may rename files under BUNDLE's or Application Bundles in MACOSX. Please use it only if you know what you are doing. The objective of this program was to sanitizes filenames invalid under SMB shares. 
 
 ### LICENSE
 
