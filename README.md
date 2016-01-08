@@ -16,11 +16,11 @@ Looks for the following sets of characters:
 
 ### Installation and Usage
 
-Download [sanato-1.03.zip](https://github.com/LuisPalacios/sanato/blob/master/download/sanato-1.03.zip) or download this repo and compile with XCode. Place the executable into your PATH. Open a terminal session and run in any of your directories. Firstly without any arguments so it will run in dryrun mode, show what it would do without doing it. When you are ready and happy with the tentative renamings then just run it with -s option.
+Download [sanato-1.03.zip](https://github.com/LuisPalacios/sanato/blob/master/download/sanato-1.03.zip) or download this repo and compile with XCode. Place the executable into your PATH. Open a terminal session and run in any of your directories. First without arguments so it will run in dryrun mode, telling you what it would do without doing it. When you are ready and happy with the tentative renamings then just run it with -s option.
 
 #### Disclaimer
 
-This is extremely destructive software, it simply renames files, but it can be extremely destructive as you may rename files under BUNDLE's or Application Bundles in MACOSX. Please use it only if you know what you are doing. The objective of this program was to sanitizes filenames invalid under SMB shares. 
+This is extremely destructive software, renaming files can be very dangerous as it may rename files under BUNDLE's or Application Bundles in MACOSX. Please use it only if you know what you are doing. The objective of this program was to sanitizes invalid filenames inside directories in remote SMB shares. 
 
 ### LICENSE
 
